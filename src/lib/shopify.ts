@@ -110,11 +110,18 @@ export async function fetchProducts(query?: string, first = 12): Promise<Shopify
 }
 
 export async function fetchFeaturedProducts(): Promise<ShopifyProduct[]> {
-  const query = FEATURED_HANDLES.map((h) => `handle:${h}`).join(" OR ");
-  const products = await fetchProducts(query, FEATURED_HANDLES.length);
-  // Preserve curated order
-  const map = new Map(products.map((p) => [p.node.handle, p]));
-  return FEATURED_HANDLES.map((h) => map.get(h)).filter(Boolean) as ShopifyProduct[];
+  // Storefront API doesn't support `handle:` filters, so build an aliased query.
+  const aliasedFields = FEATURED_HANDLES.map(
+    (h, i) => `p${i}: productByHandle(handle: "${h}") { ${PRODUCT_FIELDS} }`,
+  ).join("\n");
+  const query = `query FeaturedProducts { ${aliasedFields} }`;
+  const data = await storefrontApiRequest(query);
+  const result: ShopifyProduct[] = [];
+  FEATURED_HANDLES.forEach((_, i) => {
+    const node = data?.data?.[`p${i}`];
+    if (node) result.push({ node });
+  });
+  return result;
 }
 
 export async function fetchProductByHandle(handle: string): Promise<ShopifyProduct["node"] | null> {
