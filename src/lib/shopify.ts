@@ -10,9 +10,9 @@ export const FEATURED_HANDLES = [
   "blazer-monaco",
   "vestido-capri",
   "conjunto-santorini",
-  "body-saint-tropez-preto",
-  "macaquinho-tulum",
-  "t-shirt-barcelona-preta",
+  "macacao-curto-tulum",
+  "colete-rodes",
+  "t-shirt-barcelona-2",
 ];
 
 export interface ShopifyProduct {
