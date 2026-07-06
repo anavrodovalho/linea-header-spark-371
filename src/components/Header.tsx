@@ -28,7 +28,7 @@ export const Header = () => {
         <div className="col-start-1 md:col-start-2 flex justify-start md:justify-center">
           <Link
             to="/"
-            className="font-display text-3xl tracking-[0.2em] font-medium leading-none"
+            className="font-sans text-2xl md:text-[1.75rem] tracking-[0.4em] font-light leading-none pl-[0.4em]"
             aria-label="RITZ"
           >
             RITZ

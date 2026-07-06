@@ -2,60 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
-/* RITZ Design System — Editorial light theme */
+/* RITZ Design System — Editorial black & white (híbrido) */
 
 @layer base {
   :root {
     /* Paper backgrounds */
-    --background: 36 33% 97%;      /* warm off-white */
-    --foreground: 20 14% 12%;      /* deep espresso */
+    --background: 0 0% 100%;       /* pure white */
+    --foreground: 0 0% 7%;         /* near-black */
 
-    --surface: 36 24% 94%;         /* card / muted surface */
-    --surface-strong: 32 18% 88%;
+    --surface: 0 0% 96%;           /* card / muted surface */
+    --surface-strong: 0 0% 92%;
 
     /* Navigation */
-    --nav-background: 36 33% 97%;
-    --nav-foreground: 20 14% 12%;
-    --nav-hover: 25 30% 30%;
+    --nav-background: 0 0% 100%;
+    --nav-foreground: 0 0% 7%;
+    --nav-hover: 0 0% 45%;
 
     /* Interactive */
-    --primary: 20 14% 12%;
-    --primary-foreground: 36 33% 97%;
-    --primary-hover: 20 14% 22%;
+    --primary: 0 0% 7%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 0 0% 22%;
 
-    --secondary: 36 24% 94%;
-    --secondary-foreground: 20 14% 12%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 7%;
 
-    --muted: 36 20% 92%;
-    --muted-foreground: 25 8% 40%;
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 42%;
 
-    /* RITZ signature accent — champagne / warm gold */
-    --accent: 32 45% 55%;
-    --accent-foreground: 36 33% 97%;
+    /* RITZ accent — grafite suave (ênfase editorial / hover) */
+    --accent: 0 0% 45%;
+    --accent-foreground: 0 0% 100%;
 
-    --border: 30 15% 85%;
-    --input: 30 15% 85%;
-    --ring: 20 14% 12%;
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 0 0% 7%;
 
-    --card: 36 33% 97%;
-    --card-foreground: 20 14% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
 
-    --popover: 36 33% 97%;
-    --popover-foreground: 20 14% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
 
     --destructive: 0 65% 45%;
-    --destructive-foreground: 36 33% 97%;
+    --destructive-foreground: 0 0% 100%;
 
     --radius: 0.125rem;
 
-    --sidebar-background: 36 33% 97%;
-    --sidebar-foreground: 20 14% 12%;
-    --sidebar-primary: 20 14% 12%;
-    --sidebar-primary-foreground: 36 33% 97%;
-    --sidebar-accent: 36 24% 94%;
-    --sidebar-accent-foreground: 20 14% 12%;
-    --sidebar-border: 30 15% 85%;
-    --sidebar-ring: 20 14% 12%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 7%;
+    --sidebar-primary: 0 0% 7%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 7%;
+    --sidebar-border: 0 0% 89%;
+    --sidebar-ring: 0 0% 7%;
   }
 }
 
