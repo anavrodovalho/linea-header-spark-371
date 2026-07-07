@@ -20,7 +20,7 @@ export const Header = () => {
           >
             Destaques
           </a>
-          <Link to="/" className="hover:text-accent transition-colors">
+          <Link to="/about/our-story" className="hover:text-accent transition-colors">
             Sobre
           </Link>
         </nav>
