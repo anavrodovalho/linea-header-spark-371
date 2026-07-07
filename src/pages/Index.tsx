@@ -2,8 +2,18 @@ import { useEffect, useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ProductCard } from "@/components/ProductCard";
+import { CategoryCarousel } from "@/components/home/CategoryCarousel";
+import { PromoBanner } from "@/components/home/PromoBanner";
+import { Newsletter } from "@/components/home/Newsletter";
 import { fetchFeaturedProducts, type ShopifyProduct } from "@/lib/shopify";
 import { ArrowRight } from "lucide-react";
+
+// Foto editorial (vestido preto) — enquadramento com folga acima da cabeça.
+const HERO_IMAGE =
+  "https://cdn.shopify.com/s/files/1/0903/3836/1631/files/foto-12-02-2022-23-25-25_1600x2000_ea700a19-af37-4d0c-932e-6c6a3bc042a0.webp";
+// Look claro (conjunto praia) para o banner promocional.
+const PROMO_IMAGE =
+  "https://cdn.shopify.com/s/files/1/0903/3836/1631/files/img-5431-original_1600x2000_4eadac3c-08c7-4987-88e7-b2e6af3f3ead.webp";
 
 const Index = () => {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
@@ -15,26 +25,31 @@ const Index = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  const heroImage = products[0]?.node.images.edges[0]?.node.url;
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero — editorial split */}
-      <section className="relative">
-        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-4rem)]">
-          <div className="flex items-center px-6 lg:px-16 py-20 order-2 lg:order-1">
-            <div className="max-w-lg">
-              <p className="text-xs tracking-editorial text-muted-foreground mb-6">
+      {/* Hero — banner preto, texto branco */}
+      <section className="relative bg-foreground text-background">
+        <div className="relative min-h-[85vh] md:min-h-[90vh] flex items-end">
+          <img
+            src={HERO_IMAGE}
+            alt="Coleção RITZ"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: "center 12%" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/40" />
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 pb-16 md:pb-24">
+            <div className="max-w-xl">
+              <p className="text-xs tracking-editorial text-background/80 mb-6">
                 Coleção Atemporal
               </p>
-              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[0.95] mb-8">
-                Estilo se<br />
-                <em className="italic text-accent">constrói</em><br />
+              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[0.95] mb-6">
+                Estilo se <em className="italic">constrói</em>
+                <br />
                 nos detalhes.
               </h1>
-              <p className="text-base text-muted-foreground leading-relaxed mb-10 max-w-md">
+              <p className="text-base text-background/85 leading-relaxed mb-9 max-w-md">
                 Peças pensadas para mulheres que vestem intenção. Cortes precisos,
                 tecidos nobres, silhuetas que atravessam estações.
               </p>
@@ -44,33 +59,36 @@ const Index = () => {
                   e.preventDefault();
                   document.getElementById("featured")?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="inline-flex items-center gap-3 text-xs tracking-editorial border-b border-foreground pb-1 hover:text-accent hover:border-accent transition-colors"
+                className="inline-flex items-center gap-3 text-xs tracking-editorial border-b border-background pb-1 hover:text-background/70 hover:border-background/70 transition-colors"
               >
                 Explorar coleção <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.5} />
               </a>
             </div>
           </div>
-
-          <div className="relative bg-surface order-1 lg:order-2 min-h-[60vh] lg:min-h-0">
-            {heroImage ? (
-              <img
-                src={heroImage}
-                alt="Coleção RITZ"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            ) : (
-              <div className="absolute inset-0 bg-gradient-to-br from-surface to-surface-strong" />
-            )}
-            <div className="absolute bottom-8 right-8 text-right">
-              <p className="font-display italic text-background/90 text-sm mix-blend-difference">
-                Outono / Inverno
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* Featured grid */}
+      {/* Carrossel de categorias */}
+      <CategoryCarousel />
+
+      {/* Segundo banner */}
+      <PromoBanner
+        image={PROMO_IMAGE}
+        eyebrow="Nova estação"
+        title={
+          <>
+            Verão em
+            <br />
+            movimento.
+          </>
+        }
+        text="Linhas fluidas e tecidos leves para os dias mais quentes. Descubra os looks da nova coleção."
+        ctaLabel="Ver novidades"
+        ctaTo="/category/novidades-1"
+        objectPosition="center 18%"
+      />
+
+      {/* Produtos em destaque */}
       <section id="featured" className="max-w-7xl mx-auto px-6 lg:px-10 py-24 scroll-mt-20">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-4">
           <div>
@@ -112,18 +130,8 @@ const Index = () => {
         )}
       </section>
 
-      {/* Brand statement */}
-      <section className="border-t border-border bg-surface/40">
-        <div className="max-w-4xl mx-auto px-6 py-24 text-center">
-          <p className="text-xs tracking-editorial text-muted-foreground mb-6">
-            RITZ Manifesto
-          </p>
-          <p className="font-display text-3xl md:text-4xl leading-tight italic">
-            "A elegância não grita. Ela se revela na precisão do corte,
-            no toque do tecido, no gesto de quem se veste com intenção."
-          </p>
-        </div>
-      </section>
+      {/* Newsletter */}
+      <Newsletter />
 
       <Footer />
     </div>

@@ -1,46 +1,34 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ProductCard } from "@/components/ProductCard";
-import { fetchCollectionProducts, type ShopifyProduct } from "@/lib/shopify";
+import { fetchProducts, type ShopifyProduct } from "@/lib/shopify";
 
-const Category = () => {
-  const { category } = useParams();
-  const [title, setTitle] = useState("");
+const Catalog = () => {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!category) return;
-    setLoading(true);
-    fetchCollectionProducts(category)
-      .then(({ title, products }) => {
-        setTitle(title);
-        setProducts(products);
-      })
+    fetchProducts(undefined, 50)
+      .then(setProducts)
       .finally(() => setLoading(false));
-  }, [category]);
-
-  const displayTitle = title || (category ?? "").replace(/-/g, " ");
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
       <main>
-        {/* Cabeçalho da categoria */}
         <section className="max-w-7xl mx-auto px-6 lg:px-10 pt-12 pb-10 md:pt-16 md:pb-14">
           <nav className="text-xs tracking-editorial text-muted-foreground mb-6">
             <Link to="/" className="hover:text-foreground transition-colors">
               Início
             </Link>
             <span className="mx-3">/</span>
-            <span className="text-foreground capitalize">{displayTitle.toLowerCase()}</span>
+            <span className="text-foreground">Catálogo</span>
           </nav>
-          <h1 className="font-display text-4xl md:text-5xl leading-tight capitalize">
-            {displayTitle.toLowerCase()}
-          </h1>
+          <h1 className="font-display text-4xl md:text-5xl leading-tight">Catálogo</h1>
           {!loading && (
             <p className="text-sm text-muted-foreground mt-3">
               {products.length} {products.length === 1 ? "peça" : "peças"}
@@ -48,7 +36,6 @@ const Category = () => {
           )}
         </section>
 
-        {/* Grade de produtos */}
         <section className="max-w-7xl mx-auto px-6 lg:px-10 pb-24">
           {loading ? (
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-14">
@@ -63,15 +50,9 @@ const Category = () => {
           ) : products.length === 0 ? (
             <div className="text-center py-24">
               <p className="font-display text-2xl mb-3">Nenhuma peça encontrada</p>
-              <p className="text-sm text-muted-foreground mb-8">
-                Esta categoria está sem produtos no momento.
+              <p className="text-sm text-muted-foreground">
+                Volte em instantes — novas peças chegando.
               </p>
-              <Link
-                to="/"
-                className="inline-block text-xs tracking-editorial border-b border-foreground pb-1 hover:text-accent hover:border-accent transition-colors"
-              >
-                Voltar para a home
-              </Link>
             </div>
           ) : (
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-14">
@@ -88,4 +69,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default Catalog;

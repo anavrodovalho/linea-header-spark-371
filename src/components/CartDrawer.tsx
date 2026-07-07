@@ -30,12 +30,12 @@ export const CartDrawer = () => {
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
         <button
-          className="relative p-2 text-foreground hover:text-accent transition-colors"
+          className="relative p-2 text-background/80 hover:text-background transition-colors"
           aria-label="Sacola"
         >
           <ShoppingBag className="h-5 w-5" strokeWidth={1.25} />
           {totalItems > 0 && (
-            <span className="absolute -top-0.5 -right-0.5 h-4 w-4 rounded-full bg-foreground text-background text-[10px] font-medium flex items-center justify-center">
+            <span className="absolute -top-0.5 -right-0.5 h-4 w-4 rounded-full bg-background text-foreground text-[10px] font-medium flex items-center justify-center">
               {totalItems}
             </span>
           )}

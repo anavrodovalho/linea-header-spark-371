@@ -129,6 +129,81 @@ export async function fetchProductByHandle(handle: string): Promise<ShopifyProdu
   return data?.data?.productByHandle ?? null;
 }
 
+/* ============ Collections (categories) ============ */
+
+export interface ShopifyCollection {
+  handle: string;
+  title: string;
+  image: string | null;
+  hoverImage: string | null;
+}
+
+/** Categories featured in the homepage carousel, in display order. */
+export const FEATURED_COLLECTIONS: Array<{ handle: string; label: string }> = [
+  { handle: "vestidos", label: "Vestidos" },
+  { handle: "conjuntos", label: "Conjuntos" },
+  { handle: "macacao", label: "Macacões" },
+  { handle: "tops", label: "Tops" },
+  { handle: "calcas", label: "Calças" },
+  { handle: "saias", label: "Saias" },
+];
+
+/**
+ * Fetch the featured collections with a primary image and a hover image so the
+ * carousel can reproduce the "swap on hover" effect used on product cards.
+ */
+export async function fetchFeaturedCollections(): Promise<ShopifyCollection[]> {
+  const aliased = FEATURED_COLLECTIONS.map(
+    (c, i) => `c${i}: collectionByHandle(handle: "${c.handle}") {
+      handle title
+      image { url }
+      products(first: 1) { edges { node { images(first: 2) { edges { node { url } } } } } }
+    }`,
+  ).join("\n");
+  const query = `query FeaturedCollections { ${aliased} }`;
+  const data = await storefrontApiRequest(query);
+  const result: ShopifyCollection[] = [];
+  FEATURED_COLLECTIONS.forEach((c, i) => {
+    const node = data?.data?.[`c${i}`];
+    if (!node) return;
+    const productImages = node.products?.edges?.[0]?.node?.images?.edges ?? [];
+    const collImage: string | null = node.image?.url ?? productImages[0]?.node?.url ?? null;
+    // Prefer a genuinely different second image for the hover swap.
+    const hover: string | null =
+      (node.image?.url ? productImages[0]?.node?.url : productImages[1]?.node?.url) ??
+      productImages[1]?.node?.url ??
+      null;
+    result.push({
+      handle: node.handle,
+      title: c.label,
+      image: collImage,
+      hoverImage: hover && hover !== collImage ? hover : null,
+    });
+  });
+  return result;
+}
+
+/** Fetch products belonging to a collection (used by the category listing page). */
+export async function fetchCollectionProducts(
+  handle: string,
+  first = 24,
+): Promise<{ title: string; products: ShopifyProduct[] }> {
+  const query = `
+    query CollectionProducts($handle: String!, $first: Int!) {
+      collectionByHandle(handle: $handle) {
+        title
+        products(first: $first) {
+          edges { node { ${PRODUCT_FIELDS} } }
+        }
+      }
+    }
+  `;
+  const data = await storefrontApiRequest(query, { handle, first });
+  const coll = data?.data?.collectionByHandle;
+  if (!coll) return { title: handle, products: [] };
+  return { title: coll.title, products: coll.products?.edges ?? [] };
+}
+
 /* ============ Cart mutations ============ */
 
 const CART_QUERY = `query cart($id: ID!) { cart(id: $id) { id totalQuantity } }`;

@@ -8,6 +8,7 @@ import { useCartSync } from "./hooks/useCartSync";
 import Index from "./pages/Index";
 import ProductDetail from "./pages/ProductDetail";
 import Category from "./pages/Category";
+import Catalog from "./pages/Catalog";
 import OurStory from "./pages/about/OurStory";
 import Sustainability from "./pages/about/Sustainability";
 import SizeGuide from "./pages/about/SizeGuide";
@@ -27,6 +28,7 @@ const AppContent = () => {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/product/:handle" element={<ProductDetail />} />
+        <Route path="/catalogo" element={<Catalog />} />
         <Route path="/category/:category" element={<Category />} />
         <Route path="/about/our-story" element={<OurStory />} />
         <Route path="/about/sustainability" element={<Sustainability />} />
