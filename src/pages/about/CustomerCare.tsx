@@ -12,139 +12,141 @@ const CustomerCare = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <div className="flex">
         <div className="hidden lg:block">
           <AboutSidebar />
         </div>
-        
+
         <main className="w-full lg:w-[70vw] lg:ml-auto px-6">
-        <PageHeader 
-          title="Customer Care" 
-          subtitle="We're here to help you with all your jewelry needs"
+        <PageHeader
+          title="Atendimento"
+          subtitle="Estamos aqui para ajudar você em cada detalhe da sua compra"
         />
-        
-        <ContentSection title="Contact Information">
+
+        <ContentSection title="Fale com a gente">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="space-y-4">
-              <h3 className="text-lg font-light text-foreground">Phone</h3>
-              <p className="text-muted-foreground">+1 (555) 123-4567</p>
-              <p className="text-sm text-muted-foreground">Mon-Fri: 9AM-6PM EST<br />Sat: 10AM-4PM EST</p>
+              <h3 className="text-lg font-light text-foreground">WhatsApp</h3>
+              <p className="text-muted-foreground">(64) 99233-2760</p>
+              <p className="text-sm text-muted-foreground">Seg-Sex: 9h-18h<br />Sáb: 9h-13h</p>
             </div>
             <div className="space-y-4">
-              <h3 className="text-lg font-light text-foreground">Email</h3>
-              <p className="text-muted-foreground">care@lineajewelry.com</p>
-              <p className="text-sm text-muted-foreground">Response within 24 hours</p>
+              <h3 className="text-lg font-light text-foreground">E-mail</h3>
+              <p className="text-muted-foreground">contato@ritzoficial.com.br</p>
+              <p className="text-sm text-muted-foreground">Resposta em até 24 horas úteis</p>
             </div>
             <div className="space-y-4">
-              <h3 className="text-lg font-light text-foreground">Live Chat</h3>
-              <Button variant="outline" className="rounded-none">
-                Start Chat
-              </Button>
-              <p className="text-sm text-muted-foreground">Available during business hours</p>
+              <h3 className="text-lg font-light text-foreground">Atendimento rápido</h3>
+              <a href="https://wa.me/5564992332760" target="_blank" rel="noreferrer">
+                <Button variant="outline" className="rounded-none">
+                  Iniciar conversa
+                </Button>
+              </a>
+              <p className="text-sm text-muted-foreground">Durante o horário comercial</p>
             </div>
           </div>
         </ContentSection>
 
-        <ContentSection title="Frequently Asked Questions">
+        <ContentSection title="Perguntas frequentes">
           <Accordion type="single" collapsible className="space-y-4">
-            <AccordionItem value="shipping" className="border border-border rounded-lg px-6">
+            <AccordionItem value="envio" className="border border-border px-6">
               <AccordionTrigger className="text-left hover:no-underline">
-                What are your shipping options and timeframes?
+                Quais são os prazos e o valor do frete?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                We offer free standard shipping (3-5 business days) on orders over $500. Express shipping (1-2 business days) is available for $25. All orders are fully insured and require signature confirmation.
+                Oferecemos frete grátis para compras acima de R$399. O prazo de entrega varia conforme a sua região e é informado no checkout. Assim que o pedido é despachado, você recebe o código de rastreio por e-mail e WhatsApp.
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="returns" className="border border-border rounded-lg px-6">
+            <AccordionItem value="trocas" className="border border-border px-6">
               <AccordionTrigger className="text-left hover:no-underline">
-                What is your return and exchange policy?
+                Como funcionam as trocas e devoluções?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                We offer a 30-day return policy for unworn items in original condition. Custom and engraved pieces are final sale. Returns are free with our prepaid return label.
+                Você tem até 7 dias corridos após o recebimento para desistir da compra (direito de arrependimento) e até 30 dias para trocas. A peça deve estar sem uso, com etiqueta e na embalagem original. É só falar com a gente pelo WhatsApp que orientamos todo o processo.
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="warranty" className="border border-border rounded-lg px-6">
+            <AccordionItem value="pagamento" className="border border-border px-6">
               <AccordionTrigger className="text-left hover:no-underline">
-                What warranty do you offer on your jewelry?
+                Quais formas de pagamento vocês aceitam?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                All LINEA jewelry comes with a lifetime warranty against manufacturing defects. This includes free repairs for normal wear and tear, stone tightening, and professional cleaning.
+                Aceitamos cartão de crédito (com opção de parcelamento), Pix e boleto bancário. As opções disponíveis aparecem na finalização da compra.
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="sizing" className="border border-border rounded-lg px-6">
+            <AccordionItem value="tamanho" className="border border-border px-6">
               <AccordionTrigger className="text-left hover:no-underline">
-                Can I resize my jewelry after purchase?
+                Como escolho o tamanho certo?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                Yes, we offer free ring resizing within 60 days of purchase (up to 2 sizes). Additional resizing is available for a service fee. Some designs cannot be resized due to their construction.
+                Consulte o nosso Guia de Tamanhos, com a tabela de medidas por peça. Se ficar em dúvida entre dois tamanhos, fale com a gente pelo WhatsApp que ajudamos você a escolher.
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="care" className="border border-border rounded-lg px-6">
+            <AccordionItem value="cuidados" className="border border-border px-6">
               <AccordionTrigger className="text-left hover:no-underline">
-                How should I care for my LINEA jewelry?
+                Como cuidar das minhas peças RITZ?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                Store pieces separately in soft pouches, avoid contact with chemicals and cosmetics, and clean gently with a soft cloth. We recommend professional cleaning every 6-12 months.
+                Cada peça acompanha as instruções de lavagem na etiqueta. De forma geral, recomendamos lavagem delicada, evitar alvejantes e secar à sombra para preservar cor e caimento por muito mais tempo.
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="authentication" className="border border-border rounded-lg px-6">
+            <AccordionItem value="rastreio" className="border border-border px-6">
               <AccordionTrigger className="text-left hover:no-underline">
-                How can I verify the authenticity of my jewelry?
+                Como acompanho meu pedido?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                Every LINEA piece comes with a certificate of authenticity and is hallmarked. You can verify authenticity on our website using your unique piece number or contact our customer care team.
+                Após a confirmação do pagamento, você recebe todas as atualizações por e-mail e WhatsApp, incluindo o código de rastreio assim que o pedido é enviado.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
         </ContentSection>
 
-        <ContentSection title="Contact Form">
+        <ContentSection title="Envie uma mensagem">
           <div>
             <form className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-sm font-light text-foreground">First Name</label>
-                  <Input className="rounded-none" placeholder="Enter your first name" />
+                  <label className="text-sm font-light text-foreground">Nome</label>
+                  <Input className="rounded-none" placeholder="Seu nome" />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-light text-foreground">Last Name</label>
-                  <Input className="rounded-none" placeholder="Enter your last name" />
+                  <label className="text-sm font-light text-foreground">Sobrenome</label>
+                  <Input className="rounded-none" placeholder="Seu sobrenome" />
                 </div>
               </div>
-              
+
               <div className="space-y-2">
-                <label className="text-sm font-light text-foreground">Email</label>
-                <Input type="email" className="rounded-none" placeholder="Enter your email" />
+                <label className="text-sm font-light text-foreground">E-mail</label>
+                <Input type="email" className="rounded-none" placeholder="seu@email.com" />
               </div>
-              
+
               <div className="space-y-2">
-                <label className="text-sm font-light text-foreground">Order Number (Optional)</label>
-                <Input className="rounded-none" placeholder="Enter your order number if applicable" />
+                <label className="text-sm font-light text-foreground">Número do pedido (opcional)</label>
+                <Input className="rounded-none" placeholder="Informe se a dúvida for sobre um pedido" />
               </div>
-              
+
               <div className="space-y-2">
-                <label className="text-sm font-light text-foreground">How can we help you?</label>
-                <Textarea 
-                  className="rounded-none min-h-[120px]" 
-                  placeholder="Please describe your inquiry in detail"
+                <label className="text-sm font-light text-foreground">Como podemos ajudar?</label>
+                <Textarea
+                  className="rounded-none min-h-[120px]"
+                  placeholder="Descreva a sua dúvida ou mensagem"
                 />
               </div>
-              
+
               <Button type="submit" className="w-full rounded-none">
-                Send Message
+                Enviar mensagem
               </Button>
             </form>
           </div>
         </ContentSection>
         </main>
       </div>
-      
+
       <Footer />
     </div>
   );

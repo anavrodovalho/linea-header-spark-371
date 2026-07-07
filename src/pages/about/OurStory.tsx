@@ -9,70 +9,70 @@ const OurStory = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <div className="flex">
         <div className="hidden lg:block">
           <AboutSidebar />
         </div>
-        
+
         <main className="w-full lg:w-[70vw] lg:ml-auto px-6">
-          <PageHeader 
-            title="Our Story" 
-            subtitle="A journey of passion, craftsmanship, and timeless elegance"
+          <PageHeader
+            title="Nossa História"
+            subtitle="Uma trajetória de intenção, cuidado e elegância atemporal"
           />
-          
+
           <ContentSection>
             <ImageTextBlock
               image="/founders.png"
-              imageAlt="Company founders"
-              title="Founded on Passion"
-              content="LINEA Jewelry was born from a shared vision of creating timeless pieces that transcend fleeting trends. Our founders, united by their passion for exceptional craftsmanship and sustainable practices, established the brand with a commitment to creating jewelry that tells a story - your story."
+              imageAlt="RITZ"
+              title="Nascida da intenção"
+              content="A RITZ nasceu do desejo de vestir mulheres que enxergam no vestir uma forma de expressão. Em Itumbiara, no coração de Goiás, começamos com uma ideia simples: criar peças que atravessam estações e tendências. Cada coleção é pensada para durar — no armário e na memória de quem veste."
               imagePosition="left"
             />
           </ContentSection>
 
-          <ContentSection title="Our Heritage">
+          <ContentSection title="O que nos move">
             <div className="grid md:grid-cols-2 gap-12">
               <div className="space-y-6">
-                <h3 className="text-xl font-light text-foreground">Traditional Craftsmanship</h3>
+                <h3 className="text-xl font-light text-foreground">Cortes precisos</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Every piece in our collection is meticulously handcrafted by skilled artisans who have honed their craft over generations. We honor traditional techniques while embracing modern innovation, ensuring each piece meets our exacting standards for quality and beauty.
+                  Trabalhamos a modelagem com atenção aos detalhes: caimento que valoriza o corpo, acabamentos cuidadosos e tecidos escolhidos a dedo. Acreditamos que a elegância mora na precisão — no corte, no toque e no gesto de quem se veste com intenção.
                 </p>
               </div>
               <div className="space-y-6">
-                <h3 className="text-xl font-light text-foreground">Sustainable Future</h3>
+                <h3 className="text-xl font-light text-foreground">Moda com propósito</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  We believe luxury and sustainability can coexist beautifully. Our commitment to ethical sourcing, recycled materials, and responsible manufacturing practices ensures that every piece you wear contributes to a more sustainable future.
+                  Preferimos coleções enxutas e atemporais a lançamentos descartáveis. Peças versáteis, que conversam entre si e acompanham a mulher do dia ao entardecer, compondo um guarda-roupa consciente e cheio de personalidade.
                 </p>
               </div>
             </div>
           </ContentSection>
 
-          <ContentSection title="Our Values">
+          <ContentSection title="Nossos valores">
             <div className="grid md:grid-cols-3 gap-8">
               <div className="space-y-4">
-                <h3 className="text-lg font-light text-foreground">Excellence</h3>
+                <h3 className="text-lg font-light text-foreground">Cuidado</h3>
                 <p className="text-muted-foreground">
-                  We pursue perfection in every detail, from the initial design concept to the final polish.
+                  Do primeiro croqui à última costura, buscamos excelência em cada detalhe de cada peça.
                 </p>
               </div>
               <div className="space-y-4">
-                <h3 className="text-lg font-light text-foreground">Authenticity</h3>
+                <h3 className="text-lg font-light text-foreground">Autenticidade</h3>
                 <p className="text-muted-foreground">
-                  Each piece reflects genuine craftsmanship and tells an authentic story of artistry and care.
+                  Cada peça carrega uma identidade genuína e conta uma história de estilo e intenção.
                 </p>
               </div>
               <div className="space-y-4">
-                <h3 className="text-lg font-light text-foreground">Innovation</h3>
+                <h3 className="text-lg font-light text-foreground">Atemporalidade</h3>
                 <p className="text-muted-foreground">
-                  We continuously evolve our designs and techniques while honoring timeless aesthetic principles.
+                  Criamos para durar — silhuetas que permanecem bonitas muito além da estação em que nasceram.
                 </p>
               </div>
             </div>
           </ContentSection>
         </main>
       </div>
-      
+
       <Footer />
     </div>
   );

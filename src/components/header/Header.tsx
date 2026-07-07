@@ -1,13 +1,6 @@
-import StatusBar from "./StatusBar";
-import Navigation from "./Navigation";
+import { Header as RitzHeader } from "@/components/Header";
 
-const Header = () => {
-  return (
-    <header className="w-full sticky top-0 z-50">
-      {/* <StatusBar /> */}
-      <Navigation />
-    </header>
-  );
-};
+// Unificado: reaproveita o cabeçalho RITZ em todas as subpáginas
+const Header = () => <RitzHeader />;
 
 export default Header;

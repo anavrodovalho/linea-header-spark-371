@@ -9,51 +9,37 @@ import AboutSidebar from "../../components/about/AboutSidebar";
 const StoreLocator = () => {
   const stores = [
     {
-      name: "LINEA Madison Avenue",
-      address: "789 Madison Avenue, New York, NY 10065",
-      phone: "+1 (212) 555-0123",
-      hours: "Mon-Sat: 10AM-8PM, Sun: 12PM-6PM",
-      services: ["Personal Shopping", "Custom Design", "Repairs", "Appraisals"]
-    },
-    {
-      name: "LINEA Beverly Hills",
-      address: "456 Rodeo Drive, Beverly Hills, CA 90210",
-      phone: "+1 (310) 555-0456",
-      hours: "Mon-Sat: 10AM-8PM, Sun: 12PM-6PM",
-      services: ["Personal Shopping", "Custom Design", "VIP Suites", "Repairs"]
-    },
-    {
-      name: "LINEA SoHo",
-      address: "123 Spring Street, New York, NY 10012",
-      phone: "+1 (212) 555-0789",
-      hours: "Mon-Sat: 11AM-8PM, Sun: 12PM-7PM",
-      services: ["Browse & Buy", "Repairs", "Gift Wrapping"]
+      name: "RITZ Itumbiara",
+      address: "Centro, Itumbiara — GO",
+      phone: "(64) 99233-2760",
+      hours: "Seg-Sex: 9h-18h · Sáb: 9h-13h",
+      services: ["Provador", "Atendimento personalizado", "Retirada de pedidos", "Trocas"]
     }
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <div className="flex">
         <div className="hidden lg:block">
           <AboutSidebar />
         </div>
-        
+
         <main className="w-full lg:w-[70vw] lg:ml-auto px-6">
-        <PageHeader 
-          title="Store Locator" 
-          subtitle="Visit us in person for a personalized jewelry experience"
+        <PageHeader
+          title="Nossas Lojas"
+          subtitle="Venha nos visitar para uma experiência de compra completa"
         />
-        
-        <ContentSection title="Interactive Store Map">
+
+        <ContentSection title="Onde estamos">
           <StoreMap />
         </ContentSection>
 
-        <ContentSection title="Our Locations">
+        <ContentSection title="Nossa loja">
           <div className="grid gap-8">
             {stores.map((store, index) => (
-              <div key={index} className="bg-background rounded-lg p-8 border border-border">
+              <div key={index} className="bg-background p-8 border border-border">
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <h3 className="text-xl font-light text-foreground">{store.name}</h3>
@@ -62,19 +48,27 @@ const StoreLocator = () => {
                       <p>{store.phone}</p>
                       <p>{store.hours}</p>
                     </div>
-                    
+
                     <div className="flex flex-col sm:flex-row gap-3 pt-4">
-                      <Button variant="outline" className="rounded-none">
-                        Get Directions
-                      </Button>
-                      <Button className="rounded-none">
-                        Book Appointment
-                      </Button>
+                      <a
+                        href="https://www.google.com/maps?q=Itumbiara,GO,Brasil"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <Button variant="outline" className="rounded-none w-full sm:w-auto">
+                          Como chegar
+                        </Button>
+                      </a>
+                      <a href="https://wa.me/5564992332760" target="_blank" rel="noreferrer">
+                        <Button className="rounded-none w-full sm:w-auto">
+                          Falar no WhatsApp
+                        </Button>
+                      </a>
                     </div>
                   </div>
-                  
+
                   <div className="space-y-4">
-                    <h4 className="text-lg font-light text-foreground">Available Services</h4>
+                    <h4 className="text-lg font-light text-foreground">O que você encontra</h4>
                     <ul className="grid grid-cols-2 gap-2">
                       {store.services.map((service, serviceIndex) => (
                         <li key={serviceIndex} className="text-sm text-muted-foreground flex items-center">
@@ -90,56 +84,24 @@ const StoreLocator = () => {
           </div>
         </ContentSection>
 
-        <ContentSection title="Private Appointments">
+        <ContentSection title="Prefere comprar online?">
           <div className="space-y-6">
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Experience personalized service with a private appointment. Our jewelry consultants will guide you through our collections, help with custom designs, and provide expert advice in a comfortable, private setting.
+              Todo o nosso acervo também está disponível na loja online, com envio para todo o Brasil e frete grátis nas compras acima de R$399. Se precisar de ajuda para escolher, é só chamar no WhatsApp.
             </p>
-            
-            <div className="grid md:grid-cols-3 gap-8 mt-12">
-              <div className="space-y-3">
-                <h4 className="text-lg font-light text-foreground">Personal Shopping</h4>
-                <p className="text-muted-foreground text-sm">
-                  One-on-one guidance to find the perfect piece for any occasion
-                </p>
-              </div>
-              <div className="space-y-3">
-                <h4 className="text-lg font-light text-foreground">Custom Design</h4>
-                <p className="text-muted-foreground text-sm">
-                  Work with our designers to create a unique piece just for you
-                </p>
-              </div>
-              <div className="space-y-3">
-                <h4 className="text-lg font-light text-foreground">Expert Services</h4>
-                <p className="text-muted-foreground text-sm">
-                  Professional appraisals, repairs, and maintenance services
-                </p>
-              </div>
-            </div>
-            
-            <div className="pt-8">
-              <Button size="lg" className="rounded-none">
-                Schedule Your Appointment
-              </Button>
-            </div>
-          </div>
-        </ContentSection>
 
-        <ContentSection title="Virtual Consultations">
-          <div className="bg-muted/10 rounded-lg p-8">
-            <h3 className="text-xl font-light text-foreground mb-4">Can't visit in person?</h3>
-            <p className="text-muted-foreground mb-6">
-              Book a virtual consultation with one of our jewelry experts. We'll showcase pieces via video call, 
-              answer your questions, and help you make the perfect selection from the comfort of your home.
-            </p>
-            <Button variant="outline" className="rounded-none">
-              Book Virtual Consultation
-            </Button>
+            <div className="pt-2">
+              <a href="https://wa.me/5564992332760" target="_blank" rel="noreferrer">
+                <Button size="lg" className="rounded-none">
+                  Atendimento pelo WhatsApp
+                </Button>
+              </a>
+            </div>
           </div>
         </ContentSection>
         </main>
       </div>
-      
+
       <Footer />
     </div>
   );
