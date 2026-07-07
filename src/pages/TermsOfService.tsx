@@ -131,7 +131,7 @@ const TermsOfService = () => {
                 Em caso de dúvidas sobre estes Termos, entre em contato:
               </p>
               <div className="mt-4 text-muted-foreground">
-                <p>E-mail: contato@ritzoficial.com.br</p>
+                <p>E-mail: shop.ritzoficial@gmail.com</p>
                 <p>WhatsApp: (64) 99233-2760</p>
                 <p>Itumbiara — GO, Brasil</p>
               </div>

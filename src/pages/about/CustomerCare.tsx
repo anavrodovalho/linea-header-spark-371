@@ -33,7 +33,7 @@ const CustomerCare = () => {
             </div>
             <div className="space-y-4">
               <h3 className="text-lg font-light text-foreground">E-mail</h3>
-              <p className="text-muted-foreground">contato@ritzoficial.com.br</p>
+              <p className="text-muted-foreground">shop.ritzoficial@gmail.com</p>
               <p className="text-sm text-muted-foreground">Resposta em até 24 horas úteis</p>
             </div>
             <div className="space-y-4">

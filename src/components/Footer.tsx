@@ -13,7 +13,7 @@ export const Footer = () => {
             </p>
             <div className="flex gap-6 text-xs tracking-editorial text-muted-foreground">
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/shop.ritz"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-foreground transition-colors"
@@ -29,7 +29,7 @@ export const Footer = () => {
                 WhatsApp
               </a>
               <a
-                href="mailto:contato@ritzoficial.com.br"
+                href="mailto:shop.ritzoficial@gmail.com"
                 className="hover:text-foreground transition-colors"
               >
                 E-mail
